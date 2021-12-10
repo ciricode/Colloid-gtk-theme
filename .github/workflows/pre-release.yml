@@ -17,6 +17,7 @@ jobs:
             sudo apt-get install sassc
             ./build.sh
             ./install.sh -d $PWD/release
+            cd release && zip -r theme.zip .
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -24,4 +25,4 @@ jobs:
           automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
-          files: release/*
+          files: release/theme.zip
